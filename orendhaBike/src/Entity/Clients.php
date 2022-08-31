@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ClientRepository;
+use App\Repository\ClientsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ClientRepository::class)]
-class Client
+#[ORM\Entity(repositoryClass: ClientsRepository::class)]
+class Clients
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,14 +19,14 @@ class Client
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
+    #[ORM\Column(length: 100)]
+    private ?string $email = null;
+
     #[ORM\Column(length: 255)]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 5)]
     private ?string $codePostal = null;
-
-    #[ORM\Column(length: 100)]
-    private ?string $email = null;
 
     public function getId(): ?int
     {
@@ -57,6 +57,18 @@ class Client
         return $this;
     }
 
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
     public function getAdresse(): ?string
     {
         return $this->adresse;
@@ -77,18 +89,6 @@ class Client
     public function setCodePostal(string $codePostal): self
     {
         $this->codePostal = $codePostal;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
 
         return $this;
     }

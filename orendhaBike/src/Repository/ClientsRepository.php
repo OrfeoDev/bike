@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Client;
+use App\Entity\Clients;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Client>
+ * @extends ServiceEntityRepository<Clients>
  *
- * @method Client|null find($id, $lockMode = null, $lockVersion = null)
- * @method Client|null findOneBy(array $criteria, array $orderBy = null)
- * @method Client[]    findAll()
- * @method Client[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Clients|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Clients|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Clients[]    findAll()
+ * @method Clients[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ClientRepository extends ServiceEntityRepository
+class ClientsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Client::class);
+        parent::__construct($registry, Clients::class);
     }
 
-    public function add(Client $entity, bool $flush = false): void
+    public function add(Clients $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ClientRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Client $entity, bool $flush = false): void
+    public function remove(Clients $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class ClientRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Client[] Returns an array of Client objects
+//     * @return Clients[] Returns an array of Clients objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class ClientRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Client
+//    public function findOneBySomeField($value): ?Clients
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')

@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Categorie : {{ slug }}{% endblock %}
+
+{% block body %}
+    Categories:
+<div class="row">
+
+    {% for p in categorie.produits  %}
+        <div class="col-3">
+            <div class="card">
+                <img src="{{p.mainPicture  }}" alt="Image du produit" class="img-fluid">
+                <div class="card-body">
+                    <h4 class="card-title">{{p.name }} ({{ p.price/100 }} &euro;)</h4>
+                    <span class="badge badge-info"> {{ p.categorie.name }}</span>
+
+                    <p class="card-text">
+                        {{p.descriptionCourte }}
+                    </p>
+                    <a href="" class="btn btn-primary btn-sm">Details</a>
+                    <a href="" class="btn btn-success btn-sm">Ajouter</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

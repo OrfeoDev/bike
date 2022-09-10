@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block title %}Page de {{ produit.name }}{% endblock %}
+
+{% block body %}
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Acceuil</a></li>
+        <li class="breadcrumb-item"><a href="#">{{ produit.categorie.name }}</a></li>
+        <li class="breadcrumb-item active">{{ produit.name }}</li>
+    </ol>
+    <h1>{{ produit.name }}({{ produit.price/100 }})</h1>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-4">
+                <img class="img-fluid" src="{{ produit.mainPicture }}" alt="">
+            </div>
+            <div class="col">
+                <span class=" badge bg-primary">{{ produit.categorie.name}}</span>
+                <p>{{ produit.descriptionCourte}}</p>
+                <a href="#" class="btn btn-success btn-lg">
+                <i class="fas fa-shopping-cart"></i>
+                Ajouter au panier
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

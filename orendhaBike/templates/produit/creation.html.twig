@@ -4,5 +4,16 @@
 {% endblock %}
 
 {% block body %}
-<h1>Nouveau produit</h1>
+    {# Voir la doc pour les form row etc #}
+    <h1>Nouveau produit</h1>
+    {{ form_start(formView) }}
+
+    {{ form_errors(formView) }}
+
+    {{ form_widget(formView) }}
+    <button type="submit" class="btn btn-success">
+        <i class="fas fa-save"></i>
+        Cree le produit
+    </button>
+    {{ form_end(formView) }}
 {% endblock %}
